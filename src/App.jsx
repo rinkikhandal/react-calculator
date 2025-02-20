@@ -31,14 +31,6 @@ const reducer = (state, { type, payload }) => {
           currentOperand: null,
         };
       }
-      if (state.previousOperand == null) {
-        return {
-          ...state,
-          operation: payload.operation,
-          previousOperand: state.currentOperand,
-          currentOperand: null,
-        };
-      }
       if (state.currentOperand == null) {
         return {
           ...state,
@@ -69,10 +61,6 @@ const reducer = (state, { type, payload }) => {
     case Actions.EVALUATE:
       if (state.previousOperand == null || state.currentOperand == null) {
         return state;
-      }
-
-      if (state.operation == null) {
-        return {};
       }
 
       return {
@@ -134,11 +122,6 @@ const App = () => {
     reducer,
     { currentOperand: null, previousOperand: null, operation: null }
   );
-
-  // always runs after the dom content is rendered
-  // useEffect(() => {
-  //   console.log("component mounted");
-  // });
 
   return (
     <main className="min-h-[100vh] bg-black flex justify-center items-center">
