@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+@layer components {
+  button {
+    cursor: pointer;
+  }
+
+  button:active {
+    box-shadow: 0 0 20px 0px rgba(168, 159, 159, 0.2) inset;
+  }
+}
